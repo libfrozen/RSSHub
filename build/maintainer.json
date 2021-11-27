@@ -11,6 +11,15 @@
     "/biodiscover/:channel?": [
         "aidistan"
     ],
+    "/ccac/news/:type/:lang?": [
+        "linbuxiao"
+    ],
+    "/cebbank/quotation/all": [
+        "linbuxiao"
+    ],
+    "/cebbank/quotation/history/:type": [
+        "linbuxiao"
+    ],
     "/epicgames/epicgames/:collection": [
         "DIYgod",
         "NeverBehave",
@@ -47,6 +56,12 @@
     "/jump/discount/:platform/:filter?/:countries?": [
         "zytomorrow"
     ],
+    "/ngocn2/:category?": [
+        "nczitzk"
+    ],
+    "/people/liuyan/:id/:state?": [
+        "nczitzk"
+    ],
     "/qq/live/:id": [
         "nczitzk"
     ],
@@ -62,12 +77,24 @@
     "/ruancan/ruancan/search/:keyword?": [
         "nczitzk"
     ],
+    "/secnews/index": [
+        "kaiili"
+    ],
+    "/szse/rule": [
+        "nczitzk"
+    ],
     "/test/:id": [
         "DIYgod",
         "NeverBehave"
     ],
+    "/timednews/news/:type?": [
+        "linbuxiao"
+    ],
     "/trow/portal": [
         "shiningdracon"
+    ],
+    "/wangqiutiyu/anchor/:id": [
+        "nczitzk"
     ],
     "/rsshub/rss": [],
     "/rsshub/routes": [],
@@ -212,8 +239,6 @@
     "/dapenti/tugua": [],
     "/dapenti/subject/:id": [],
     "/dockone/weekly": [],
-    "/toutiao/today": [],
-    "/toutiao/user/:id": [],
     "/zcfy": [],
     "/zcfy/index": [],
     "/zcfy/hot": [],
@@ -310,6 +335,7 @@
     "/mihoyo/bh3/:type": [],
     "/mihoyo/bh2/:type": [],
     "/cctv/xwlb": [],
+    "/cctv/lm/:id?": [],
     "/cctv/:category": [],
     "/cctv/photo/jx": [],
     "/cctv-special/:id?": [],
@@ -555,6 +581,7 @@
     "/ynu/grs/qttz/:category": [],
     "/ynu/jwc/:category": [],
     "/ynu/home": [],
+    "/ynnu/edu/news": [],
     "/kmust/jwc/:type?": [],
     "/kmust/job/careers/:type?": [],
     "/kmust/job/jobfairs": [],
@@ -577,6 +604,7 @@
     "/dgut/xsc/:type?": [],
     "/tju/sse/:type?": [],
     "/scut/jwc/notice/:category?": [],
+    "/scut/jwc/school/:category?": [],
     "/scut/jwc/news": [],
     "/wzbc/:type?": [],
     "/henu/:type?": [],
@@ -703,6 +731,7 @@
     "/manhuagui/comic/:id": [],
     "/mhgui/comic/:id": [],
     "/twmanhuagui/comic/:id": [],
+    "/copymanga/comic/:id": [],
     "/cartoonmad/comic/:id": [],
     "/vol/:mode?": [],
     "/dongmanmanhua/:category/:name/:id": [],
@@ -971,6 +1000,8 @@
     "/nintendo/direct": [],
     "/nintendo/system-update": [],
     "/who/news-room/:type": [],
+    "/who/speeches/:language?": [],
+    "/who/news/:language?": [],
     "/metred/fuli": [],
     "/mit/graduateadmissions/:type/:name": [],
     "/mit/ocw-top": [],
@@ -1178,7 +1209,6 @@
     "/sse/disclosure/:query?": [],
     "/szse/notice": [],
     "/szse/inquire/:type": [],
-    "/szse/rule": [],
     "/szse/projectdynamic/:type?/:stage?/:status?": [],
     "/jskou/:type?": [],
     "/cneb/yjxx": [],
@@ -1213,7 +1243,7 @@
     "/taptap/topic/:id/:label?": [],
     "/taptap/changelog/:id": [],
     "/taptap/review/:id/:order?": [],
-    "/lofter/tag/:name/:type?": [],
+    "/lofter/tag/:name?/:type?": [],
     "/lofter/user/:username": [],
     "/watchface/:watch_type?/:list_type?": [],
     "/cnu/selected": [],
@@ -1360,6 +1390,7 @@
     "/coronavirus/mogov-2019ncov/:lang": [],
     "/coronavirus/qq/fact": [],
     "/coronavirus/sg-moh": [],
+    "/coronavirus/yahoo-japan/:tdfk?": [],
     "/njfu/jwc/:category?": [],
     "/nikkei/index": [],
     "/nikkei/:category/:article_type?": [],
@@ -1968,6 +1999,7 @@
     "/lingyi/:category": [],
     "/wainao-reads/all-articles": [],
     "/react/react-native-weekly": [],
+    "/dbaplus/activity/:type?": [],
     "/dbaplus/:tab?": [],
     "/liyuan-forums/threads": [],
     "/liyuan-forums/threads/forum/:forum_id": [],
@@ -2022,5 +2054,20 @@
     "/x410/news": [],
     "/right/forum/:id?": [],
     "/hket/:category?": [],
-    "/s-hentai/:id?": []
+    "/micmicidol": [],
+    "/micmicidol/search/:label": [],
+    "/hkgolden/:id?/:limit?/:sort?": [],
+    "/discuss/:fid": [],
+    "/uwants/:fid": [],
+    "/now/news/rank": [],
+    "/s-hentai/:id?": [],
+    "/netflix/newsroom/:category?/:region?": [],
+    "/sbs/chinese/:category?/:id?/:dialect?/:language?": [],
+    "/asiantolick/:category?/:keyword?": [],
+    "/researchgate/publications/:id": [],
+    "/questmobile/report/:category?/:label?": [],
+    "/rss3/blog": [],
+    "/odaily/activity": [],
+    "/fashionnetwork/news/:sectors?/:categories?/:language?": [],
+    "/dykszx/news/:type?": []
 }

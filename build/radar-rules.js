@@ -19,6 +19,20 @@
         docs:"https://docs.rsshub.app/new-media.html#sheng-wu-tan-suo",
         source:"/:channel",
         target:"/biodiscover/:channel" } ] },
+  "ccac.org.mo":{ _name:"澳门廉政公署",
+    ".":[ { title:"最新消息",
+        docs:"https://docs.rsshub.app/government.html#ao-men-lian-zheng-gong-shu",
+        source:[ "/:lang/news.html" ],
+        target:"/ccac/news/all/:lang" } ] },
+  "cebbank.com":{ _name:"中国光大银行",
+    ".":[ { title:"外汇牌价 - 牌价总览",
+        docs:"https://docs.rsshub.app/new-media.html#eprice",
+        source:[ "/eportal/ui?pageId=477257" ],
+        target:"/quotation/all" },
+      { title:"外汇牌价 - 历史记录",
+        docs:"https://docs.rsshub.app/new-media.html#eprice",
+        source:[ "/site/ygzx/whpj/rmbwhpjlspj/index.html?currcode=:id" ],
+        target:({ id }) => `/quotation/${id}` } ] },
   "eprice.com.tw":{ _name:"ePrice",
     ".":[ { title:"ePrice 比價王",
         docs:"https://docs.rsshub.app/new-media.html#eprice",
@@ -41,20 +55,11 @@
           "/" ],
         target:"/focustaiwan/category?" } ] },
   "furstar.jp":{ _name:"Furstar",
-    ".":[ { title:"最新售卖角色列表",
-        docs:"https://docs.rsshub.app/shopping.html#furstar-zui-xin-shou-mai-jiao-se-lie-biao",
-        source:[ "/:lang",
+    ".":[ { title:"安全文摘首頁",
+        docs:"https://docs.rsshub.app/shopping.html#an-quan-wen-zhai",
+        source:[ "/",
           "/" ],
-        target:"/furstar/characters/:lang" },
-      { title:"已经出售的角色列表",
-        docs:"https://docs.rsshub.app/shopping.html#furstar-yi-jing-chu-shou-de-jiao-se-lie-biao",
-        source:[ "/:lang/archive.php",
-          "/archive.php" ],
-        target:"/furstar/archive/:lang" },
-      { title:"画师列表",
-        docs:"https://docs.rsshub.app/shopping.html#furstar-hua-shi-lie-biao",
-        source:[ "/" ],
-        target:"/furstar/artists" } ] },
+        target:"/secnews/index" } ] },
   "hotukdeals.com":{ _name:"hotukdeals",
     www:[ { title:"highlights",
         docs:"https://docs.rsshub.app/shopping.html#hotukdeals",
@@ -87,6 +92,16 @@
         docs:"https://docs.rsshub.app/game.html#jump",
         source:[ "/" ],
         target:"/jump/discount/switch" } ] },
+  "ngocn2.org":{ _name:"NGOCN",
+    ".":[ { title:"分类",
+        docs:"https://docs.rsshub.app/new-media.html#ngocn2-fen-lei",
+        source:[ "/" ],
+        target:"/ngocn2/:category?" } ] },
+  "people.com":{ _name:"人民网",
+    liuyan:[ { title:"领导留言板",
+        docs:"https://docs.rsshub.app/traditional-media.html#ren-min-wang-ling-dao-liu-yan-ban",
+        source:"/",
+        target:"/people/liuyan/:id/:state?" } ] },
   "qq.com":{ _name:"腾讯",
     "mp.weixin":[ { title:"微信公众号栏目",
         docs:"https://docs.rsshub.app/new-media.html#gong-zhong-hao-lan-mu-fei-tui-song-li-shi-xiao-xi",
@@ -130,11 +145,72 @@
         source:[ "/tag/:tag",
           "/" ],
         target:"/ruancan/tag/:tag" } ] },
+  "szse.cn":{ _name:"深圳证券交易所",
+    ".":[ { title:"最新规则",
+        docs:"https://docs.rsshub.app/other.html#shen-zhen-zheng-quan-jiao-yi-suo-zui-xin-gui-ze",
+        source:[ "/lawrules/rule/new",
+          "/" ],
+        target:"/szse/rule" } ] },
+  "timednews.com":{ _name:"时刻新闻",
+    ".":[ { title:"新闻",
+        docs:"https://docs.rsshub.app/new-media.html#shi-ke-xin-wen",
+        source:[ "/topic/:type/:id" ],
+        target:({ type, id }) => {
+                    let name = '';
+                    if (type === 'cat') {
+                        if (id === '1') {
+                            name = 'all';
+                        }
+                    } else if (type === 'subcat') {
+                        switch (id) {
+                            case '1':
+                                name = 'currentAffairs';
+                                break;
+                            case '2':
+                                name = 'finance';
+                                break;
+                            case '3':
+                                name = 'technology';
+                                break;
+                            case '4':
+                                name = 'social';
+                                break;
+                            case '5':
+                                name = 'sports';
+                                break;
+                            case '6':
+                                name = 'international';
+                                break;
+                            case '7':
+                                name = 'usa';
+                                break;
+                            case '8':
+                                name = 'cn';
+                                break;
+                            case '9':
+                                name = 'europe';
+                                break;
+                            case '14':
+                                name = 'comments';
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                    return `/timednews/news/${name}`;
+                } } ] },
   "trow.cc":{ _name:"The Ring of Wonder",
     ".":[ { title:"首页更新",
         docs:"https://docs.rsshub.app/bbs.html#the-ring-of-wonder",
         source:[ "/" ],
         target:"/portal" } ] },
+  "wangqiutiyu.com":{ _name:"旺球体育",
+    ".":[ { title:"直播间开播",
+        docs:"https://docs.rsshub.app/live.html#wang-qiu-ti-yu-zhi-bo-jian-kai-bo",
+        source:[ "/anchor/:id",
+          "/" ],
+        target:"/wangqiutiyu/anchor/:id" } ] },
   "bilibili.com":{ _name:"bilibili",
     www:[ { title:"分区视频",
         docs:"https://docs.rsshub.app/social-media.html#bilibili",
