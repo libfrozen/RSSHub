@@ -1,6 +1,19 @@
 name: test
 
-on: [ push, pull_request ]
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+    paths:
+      - 'test/**'
+      - 'lib/**'
+      - '!**/maintainer.js'
+      - '!**/radar.js'
+      - '!**/radar-rules.js'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.github/workflows/test.yml'
+  pull_request: ~
 
 permissions:
   contents: read
@@ -16,7 +29,7 @@ jobs:
         options: --entrypoint redis-server
     strategy:
       matrix:
-        node-version: [ '14', '16' ]
+        node-version: [ 14, 16 ]
     name: Jest on Node ${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v3
@@ -39,8 +52,9 @@ jobs:
   puppeteer:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [ '14', '16' ]
+        node-version: [ 14, 16 ]
         chromium:
           - name: bundled Chromium
             dependency: ''
@@ -81,7 +95,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ '14', '16' ]
+        node-version: [ 14, 16 ]
     name: Build docs on Node ${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v3
@@ -97,7 +111,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ '14', '16' ]
+        node-version: [ 14, 16 ]
     name: Build radar and maintainer on Node ${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v3
@@ -108,3 +122,16 @@ jobs:
       - run: yarn
       - name: Build radar and maintainer
         run: npm run build:all
+
+  automerge:
+    if: github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'
+    needs: [ jest, puppeteer, docs, all ]
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          target: patch

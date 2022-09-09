@@ -4,6 +4,44 @@ pageClass: routes
 
 # 金融
 
+## AI 财经社
+
+### 最新文章
+
+<Route author="nczitzk" example="/aicaijing/latest" path="/aicaijing/latest"/>
+
+### 封面文章
+
+<Route author="nczitzk" example="/aicaijing/cover" path="/aicaijing/cover"/>
+
+### 推荐资讯
+
+<Route author="nczitzk" example="/aicaijing/recommend" path="/aicaijing/recommend"/>
+
+### 热点 & 深度
+
+<Route author="nczitzk" example="/aicaijing/information/14" path="/aicaijing/information/:id?" :paramsDesc="['栏目 id，可在对应栏目页 URL 中找到，默认为 14，即热点最新']">
+
+| 栏目 id | 栏目      |
+| ----- | ------- |
+| 14    | 热点 - 最新 |
+| 5     | 热点 - 科技 |
+| 9     | 热点 - 消费 |
+| 7     | 热点 - 出行 |
+| 13    | 热点 - 文娱 |
+| 10    | 热点 - 教育 |
+| 25    | 热点 - 地产 |
+| 11    | 热点 - 更多 |
+| 28    | 深度 - 出行 |
+| 29    | 深度 - 科技 |
+| 31    | 深度 - 消费 |
+| 33    | 深度 - 教育 |
+| 34    | 深度 - 更多 |
+| 8     | 深度 - 地产 |
+| 6     | 深度 - 文娱 |
+
+</Route>
+
 ## BigQuant
 
 ### 专题报告
@@ -44,7 +82,37 @@ pageClass: routes
 
 <Route author="HenryQW" example="/finviz/news/AAPL" path="/finviz/news/:ticker" :paramsDesc="['股票代码']"/>
 
+## FX Markets
+
+### 分类
+
+<Route author="mikkkee" example="/fx-markets/trading" path="/fx-markets/:channel" :paramsDesc="['分类代码，可在首页导航栏的目标网址 URL 中找到']">
+
+| Trading | Infrastructure | Tech and Data | Regulation |
+| ------- | -------------- | ------------- | ---------- |
+| trading | infrastructure | tech-and-data | regulation |
+
+</Route>
+
+## Seeking Alpha
+
+### Summary
+
+<Route author="TonyRL" example="/seekingalpha/TSM/transcripts" path="/seekingalpha/:symbol/:category?" :paramsDesc="['股票代号', '分类，见下表，默认为 `news`']"  radar="1" rssbud="1">
+
+| Analysis | News | Transcripts | Press Releases | Related Analysis |
+| -------- | ---- | ----------- | -------------- | ---------------- |
+| analysis | news | transcripts | press-releases | related-analysis |
+
+</Route>
+
 ## TokenInsight
+
+::: tip 提示
+
+TokenInsight 官方亦有提供 RSS，可参考 <https://api.tokeninsight.com/reference/rss>。
+
+:::
 
 ### 博客
 
@@ -140,6 +208,12 @@ pageClass: routes
 
 </Route>
 
+## 第一财经杂志
+
+### 首页
+
+<Route author="nczitzk" example="/cbnweek" path="/cbnweek"/>
+
 ## 东方财富
 
 ### 天天基金用户动态
@@ -181,6 +255,13 @@ pageClass: routes
 ## 金十数据
 
 <Route author="laampui" example="/jinshi/index" path="/jinshi/index" />
+
+## 老虎社区
+
+### 个人主页
+
+<Route author="Fatpandac" example="/laohu8/personal/3527667596890271" path="/laohu8/personal/:id" :paramsDesc="['用户 ID，见网址链接']" rssbud="1" radar="1"/>
+
 ## 麦肯锡中国
 
 <Route author="laampui" example="/mckinsey/autos" path="/mckinsey/:category?" :paramsDesc="['默认为全部，见下表']">
@@ -206,6 +287,28 @@ pageClass: routes
 ### 重磅原创
 
 <Route author="MeXunco" example="/nbd/daily" path="/nbd/daily"/>
+
+## 前瞻网
+
+### 文章列表
+
+<Route author="moke8" example="/qianzhan/analyst/column/all" path="/qianzhan/analyst/column/:type?" :paramsDesc="['分类，见下表']">
+
+| 全部  | 研究员专栏 | 规划师专栏 | 观察家专栏 |
+| --- | ----- | ----- | ----- |
+| all | 220   | 627   | 329   |
+
+</Route>
+
+### 排行榜
+
+<Route author="moke8" example="/qianzhan/analyst/rank/week" path="/qianzhan/analyst/rank/:type?" :paramsDesc="['分类，见下表']">
+
+| 周排行  | 月排行   |
+| ---- | ----- |
+| week | month |
+
+</Route>
 
 ## 上海证券交易所
 
@@ -340,15 +443,21 @@ pageClass: routes
 
 <Route author="kdanfly" example="/chinacef/portal/hot" path="/chinacef/portal/hot" radar="1" rssbud="1" />
 
-## 淘股吧股票论坛
+## 淘股吧
 
-### 论坛总版
+### 淘股论坛
 
-<Route author="emdoe" example="/taoguba/index" path="/taoguba/index"/>
+<Route author="emdoe nczitzk" example="/taoguba" path="/taoguba/:category?" :paramsDesc="['分类，见下表，默认为社区总版']">
+
+| 淘股论坛 | 社区总版    | 精华加油    | 网友点赞    |
+| ---- | ------- | ------- | ------- |
+| bbs  | zongban | jinghua | dianzan |
+
+</Route>
 
 ### 用户博客
 
-<Route author="emdoe" example="/taoguba/user/252069" path="/taoguba/user/:uid" :paramsDesc="['用户 id']" />
+<Route author="emdoe nczitzk" example="/taoguba/blog/252069" path="/taoguba/blog/:id" :paramsDesc="['博客 id，可在对应博客页中找到']" />
 
 ## 乌拉邦
 
@@ -391,6 +500,10 @@ pageClass: routes
 ### 用户自选动态
 
 <Route author="hillerliao" example="/xueqiu/user_stock/1247347556" path="/xueqiu/user_stock/:id" :paramsDesc="['用户 id, 可在用户主页 URL 中找到']"/>
+
+### 用户专栏
+
+<Route author="TonyRL" example="/xueqiu/column/9962554712" path="/xueqiu/column/:id" :paramsDesc="['用户 id, 可在用户主页 URL 中找到']" radar="1" rssbud="1"/>
 
 ### 蛋卷基金净值更新
 
@@ -476,11 +589,11 @@ pageClass: routes
 
 ### 沟通交流
 
-<Route author="nczitzk" example="/gov/pbc/goutongjiaoliu" path="/gov/pbc/goutongjiaoliu"/>
+<Route author="nczitzk" example="/gov/pbc/goutongjiaoliu" path="/gov/pbc/goutongjiaoliu" puppeteer="1"/>
 
 ### 货币政策司公开市场交易公告
 
-<Route author="nczitzk" example="/gov/pbc/tradeAnnouncement" path="/gov/pbc/tradeAnnouncement"/>
+<Route author="nczitzk" example="/gov/pbc/tradeAnnouncement" path="/gov/pbc/tradeAnnouncement" puppeteer="1"/>
 
 ### 政策研究
 
